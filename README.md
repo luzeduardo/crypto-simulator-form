@@ -7,7 +7,7 @@ It includes linting with [ESLint](http://eslint.org/) and testing with [Mocha](h
 
 1. Inside your project `npm install crypto-simulator-form`
 2. import Simulador from 'Simulador';
-3. <Simulador uri="service URL" serverAddress="http://serverXYZ"/>;
+3. `<Simulador uri="service URL" serverAddress="http://serverXYZ"/>`
 
 ## Render
 ![Alt text](/print.png?raw=true "Rendered")
