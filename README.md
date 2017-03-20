@@ -1,5 +1,7 @@
 # Crypto Simulator Form
 
+[![npm version](https://img.shields.io/npm/v/crypto-simulator-form.svg?style=flat-square)](https://www.npmjs.com/package/crypto-simulator-form)
+
 The package is based on [react-npm-boilerplate](https://github.com/juliancwirko/react-npm-boilerplate)
 It includes linting with [ESLint](http://eslint.org/) and testing with [Mocha](https://mochajs.org/), [Enzyme](http://airbnb.io/enzyme/) and [JSDOM](https://github.com/tmpvar/jsdom).
 
