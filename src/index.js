@@ -103,6 +103,9 @@ class Simulador extends React.Component {
 Simulador.defaultProps = {
   serverAddress: `${process.env.REACT_APP_CRYPT_URL_PREFIX}${process.env.REACT_APP_CRYPT_URL_SUFFIX}`,
   uri: "/cypher/encrypt"
+  handleSubmit: function(){
+    
+  }
 }
 
 Simulador.propTypes = {
