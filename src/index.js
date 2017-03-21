@@ -20,8 +20,7 @@ class Simulador extends React.Component {
 }`;
   }
 
-  cryptData = (event) => {
-    event.preventDefault();
+  cryptData = (event) => {    
     const endereco = this.endereco.value ? this.endereco.value : '';
     let srv = this.props.serverAddress + this.props.uri;
     console.log(srv);

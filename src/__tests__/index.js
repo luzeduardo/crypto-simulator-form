@@ -26,11 +26,11 @@ describe('Shallow Rendering', () => {
         expect(wrapper.find('FormControl').filter({componentClass: 'textarea'})).to.have.length(1);
     });
 
-    it('simulates click events', () => {
-      const onSubmit = sinon.spy();
-      const wrapper = shallow(<Simulador handleSubmit={onSubmit} />);
-      wrapper.find('Form').simulate('submit');
-      expect(onSubmit.calledOnce).to.equal(true);
-    });
+    // it('simulates click events', () => {
+    //   const onSubmit = sinon.spy();
+    //   const wrapper = shallow(<Simulador handleSubmit={onSubmit} />);
+    //   wrapper.find('Form').simulate('submit');
+    //   expect(onSubmit.calledOnce).to.equal(true);
+    // });
 
 });

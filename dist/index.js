@@ -86,7 +86,6 @@
       };
 
       _this.cryptData = function (event) {
-        event.preventDefault();
         var endereco = _this.endereco.value ? _this.endereco.value : '';
         var srv = _this.props.serverAddress + _this.props.uri;
         console.log(srv);
@@ -126,7 +125,7 @@
           null,
           _react2.default.createElement(
             _reactBootstrap.Form,
-            { horizontal: true, onSubmit: this.props.handleSubmit ? this.props.handleSubmit : function (e) {
+            { horizontal: true, onSubmit: function onSubmit(e) {
                 return _this2.cryptData(e);
               } },
             _react2.default.createElement(
@@ -226,8 +225,7 @@
     endereco: _react2.default.PropTypes.string,
     defaultJson: _react2.default.PropTypes.object,
     serverAddress: _react2.default.PropTypes.string.isRequired,
-    uri: _react2.default.PropTypes.string.isRequired,
-    handleSubmit: _react2.default.PropTypes.function
+    uri: _react2.default.PropTypes.string.isRequired
   };
   exports.default = Simulador;
 });
