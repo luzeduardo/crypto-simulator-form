@@ -50,7 +50,7 @@ class Simulador extends React.Component {
   render() {
     return (
       <div>
-          <Form horizontal onSubmit={e => this.cryptData(e)}>
+          <Form horizontal onSubmit={this.props.handleSubmit ? this.props.handleSubmit : e => this.cryptData(e)}>
               <Col xs={12} sm={12}>
                 <h4>Insira os dados para criptografar:</h4>
               </Col>
@@ -109,6 +109,7 @@ Simulador.propTypes = {
   endereco: React.PropTypes.string,
   defaultJson: React.PropTypes.object,
   serverAddress: React.PropTypes.string.isRequired,
-  uri: React.PropTypes.string.isRequired
+  uri: React.PropTypes.string.isRequired,
+  handleSubmit: React.PropTypes.function
 }
 export default Simulador;
