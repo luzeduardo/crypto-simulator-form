@@ -32,7 +32,7 @@ class Simulador extends React.Component {
 
         fetch(`${srv}`, config)
         .then(response => {
-            return response.json().then(function(data){
+            return response.json().then(function(data) {
                 if (data) {
                     window.location.href = endereco + data.url;
                 }
@@ -61,7 +61,9 @@ class Simulador extends React.Component {
             componentClass="textarea"
             defaultValue={this.defaultJson()}
             inputRef={
-                ref => { this.jsonData = ref; }
+                ref => {
+                    this.jsonData = ref;
+                }
             }
             style={{height: 200}}
             />
@@ -77,7 +79,11 @@ class Simulador extends React.Component {
             type="text"
             defaultValue={this.props.endereco ? this.props.endereco : null }
             placeholder="http://localhost:3000"
-            inputRef={ref => { this.endereco = ref; }}
+            inputRef={
+                ref => {
+                    this.endereco = ref;
+                }
+            }
             />
             </FormGroup>
             </Col>
