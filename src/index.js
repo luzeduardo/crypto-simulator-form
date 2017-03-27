@@ -3,7 +3,7 @@ import {Form, Button, FormGroup, Col, ControlLabel, FormControl} from 'react-boo
 
 class Simulador extends React.Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
             failed: false
@@ -23,23 +23,22 @@ class Simulador extends React.Component {
     cryptData = (event) => {
         const endereco = this.endereco.value ? this.endereco.value : '';
         let srv = this.props.serverAddress + this.props.uri;
-        console.log(srv);
         let config = {
             mode: 'cors',
-            method: "POST",
+            method: 'POST',
             'Content-Type': 'application/json;charset=utf-8;',
             body: this.jsonData.value
         }
 
         fetch(`${srv}`, config)
-        .then( response => {
+        .then(response => {
             return response.json().then(function(data){
-                if(data){
+                if (data) {
                     window.location.href = endereco + data.url;
                 }
             });
         })
-        .catch( error => {
+        .catch(error => {
             this.setState({failed:true});
             console.log(error.message);
             throw error;
@@ -61,7 +60,9 @@ class Simulador extends React.Component {
             <FormControl
             componentClass="textarea"
             defaultValue={this.defaultJson()}
-            inputRef={ref => { this.jsonData = ref; }}
+            inputRef={
+                ref => { this.jsonData = ref; }
+            }
             style={{height: 200}}
             />
             </FormGroup>
@@ -87,9 +88,9 @@ class Simulador extends React.Component {
             <FormGroup>
             <Button
             type="submit"
-            bsStyle={ this.state.failed ? "danger" : "primary" }
+            bsStyle={ this.state.failed ? 'danger' : 'primary' }
             bsSize="sm"
-            >{ this.state.failed ? "Retentar" : "Enviar" }</Button>
+            >{ this.state.failed ? 'Retentar' : 'Enviar' }</Button>
             </FormGroup>
             </Col>
             </Col>
@@ -101,12 +102,16 @@ class Simulador extends React.Component {
 
 Simulador.defaultProps = {
     serverAddress: `${process.env.REACT_APP_CRYPT_URL_PREFIX}${process.env.REACT_APP_CRYPT_URL_SUFFIX}`,
-    uri: "/cypher/encrypt"
+    uri: '/cypher/encrypt',
+    defaultJson: `{
+        "keyX":"12345",
+        "keyY":"123"
+    }`
 }
 
 Simulador.propTypes = {
     endereco: React.PropTypes.string,
-    defaultJson: React.PropTypes.object,
+    defaultJson: React.PropTypes.string,
     serverAddress: React.PropTypes.string.isRequired,
     uri: React.PropTypes.string.isRequired
 }
