@@ -1,5 +1,5 @@
 # Crypto Simulator Form
-
+[![Known Vulnerabilities](https://snyk.io/test/github/luzeduardo/crypto-simulator-form/badge.svg?targetFile=package.json)](https://snyk.io/test/github/luzeduardo/crypto-simulator-form?targetFile=package.json)
 [![npm version](https://img.shields.io/npm/v/crypto-simulator-form.svg?style=flat-square)](https://www.npmjs.com/package/crypto-simulator-form)
 [![build status](https://img.shields.io/travis/luzeduardo/crypto-simulator-form/master.svg?style=flat-square)](https://travis-ci.org/luzeduardo/crypto-simulator-form)
 [![Code Climate](https://codeclimate.com/github/luzeduardo/crypto-simulator-form/badges/gpa.svg)](https://codeclimate.com/github/luzeduardo/crypto-simulator-form)
