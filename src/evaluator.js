@@ -4,8 +4,7 @@ const operators = metadata.operators
 const operations = metadata.operations
 const precedenceOperator = metadata.precedenceOperator
 
-const tokenizer = data => {
-  const stream = data.toString().replace(/\s+/g, '')
+const buildTokens = stream => {
   const TokenQueue = []
   for (let control = 0; control < stream.length;) {
     if (operators.includes(stream[control])) {
@@ -21,6 +20,11 @@ const tokenizer = data => {
     }
   }
   return TokenQueue
+}
+
+const tokenizer = data => {
+  const stream = data.toString().replace(/\s+/g, '')
+  return buildTokens(stream)
 }
 
 const reorderOperandPriorityInStack = (currentToken, OperatorStack, OutputQueue) => {
