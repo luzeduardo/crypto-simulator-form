@@ -23,6 +23,18 @@ const tokenizer = data => {
   return TokenQueue
 }
 
+const reorderOperandPriorityInStack = (currentToken, OperatorStack, OutputQueue) => {
+  if (precedenceOperator[currentToken] <= precedenceOperator[OperatorStack[OperatorStack.length - 1]]) {
+    OutputQueue.push(OperatorStack.pop())
+    while (OperatorStack.length > 0 && precedenceOperator[currentToken] <= precedenceOperator[OperatorStack[OperatorStack.length - 1]]) {
+      OutputQueue.push(OperatorStack.pop())
+    }
+    OperatorStack.push(currentToken)
+  } else {
+    OperatorStack.push(currentToken)
+  }
+}
+
 const makePostfixExpression = TokenQueue => {
   const OutputQueue = []
   const OperatorStack = []
@@ -34,15 +46,7 @@ const makePostfixExpression = TokenQueue => {
       if (OperatorStack.length === 0) {
         OperatorStack.push(currentToken)
       } else {
-        if (precedenceOperator[currentToken] <= precedenceOperator[OperatorStack[OperatorStack.length - 1]]) {
-          OutputQueue.push(OperatorStack.pop())
-          while (OperatorStack.length > 0 && precedenceOperator[currentToken] <= precedenceOperator[OperatorStack[OperatorStack.length - 1]]) {
-            OutputQueue.push(OperatorStack.pop())
-          }
-          OperatorStack.push(currentToken)
-        } else {
-          OperatorStack.push(currentToken)
-        }
+        reorderOperandPriorityInStack(currentToken, OperatorStack, OutputQueue)
       }
     }
   }
