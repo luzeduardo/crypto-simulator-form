@@ -44,19 +44,21 @@ const makePostfixExpression = TokenQueue => {
   const OperatorStack = []
   while (TokenQueue.length > 0) {
     const currentToken = TokenQueue.shift()
-    if (currentToken && !operators.includes(currentToken)) {
+    const isOperator = operators.includes(currentToken)
+    if (!isOperator) {
       OutputQueue.push(currentToken)
-    } else {
-      if (OperatorStack.length === 0) {
-        OperatorStack.push(currentToken)
-      } else {
-        reorderOperandPriorityInStack(currentToken, OperatorStack, OutputQueue)
-      }
+      continue
+    }
+    if (isOperator && OperatorStack.) {
+      OperatorStack.push(currentToken)
+      continue
+    }
+    if (isOperator) {
+      reorderOperandPriorityInStack(currentToken, OperatorStack, OutputQueue)
+      continue
     }
   }
-  while (OperatorStack.length > 0) {
-    OutputQueue.push(OperatorStack.pop())
-  }
+  OutputQueue.push(...OperatorStack.reverse())
   return OutputQueue
 }
 
